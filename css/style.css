@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Bad+Script);
+@import url(https://fonts.googleapis.com/css?family=Handlee);
+
+.wrap {
+    border: 2px solid #b95835;
+    border-radius: 10px;
+    padding: 1%;
+    margin: auto;
+    width : 98%;
+    max-width : 600px;
+    overflow: auto;
+}
+
+#game_map{
+    clear: both;
+    width: 100%;
+}
+
+#game_map .cell{
+    cursor: pointer;
+    float: left;
+    border-radius: 5px;
+    margin: 0.5%;
+    padding-bottom: 19%;
+    width: 19%;
+    height: 0;
+    position: relative;
+    font-family: 'Bad Script', cursive;
+    font-size: 2em;
+    background: #eecd86;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
+    line-height: 0px;
+}
+
+#game_map .filled{
+    background: #7a3e48;
+}
+
+#game_map .empty{
+    background: #eecd86;
+}
+
+#game_map .hover{
+    background: #DFE1E3;
+}
+
+.end_game{
+    display: none;
+}
+
+.btn {
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    font-family: 'Handlee', cursive;
+    font-size: 1em;
+    line-height: 2em;
+    background: #7A3E48;
+    padding: 5px 10px;
+    margin: 2px;
+    text-decoration: none;
+    min-width: 75px;
+}
+
+.btn:active {
+    background: #E18942;
+    text-decoration: none;
+    outline: none;
+}
+
+#puzCount {
+    font-family: 'Handlee', cursive;
+    font-size: 1em;
+    float: right;
+    line-height: 2em;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+@media (max-width: 1200px) {
+    #game_map {
+        max-width: 100%;
+    }
+}
