@@ -34,21 +34,38 @@
     </div>
     <div id="about" class="overlay">
       <div>
-        <p>Add "About Me" data here. <a href='#' onclick='overlay("about")'>(close)</a></p>
+        <h3>About<a class="close" href='#' onclick='overlay("about");'>X</a></h3>
+        <p>Nurikabe is a hobby project and is not complete yet. My goal is to add 100 puzzles each in the easy (5x5), medium (7x7) and difficult (9x9) category.</p>
+        <p>If you find any issues with the solutions or want to suggest any changes or updates to the code, please contact me at aditya.shevade[at]gmail.com.</p>
       </div>
     </div>
     <div id="rules" class="overlay">
       <div>
-        <p>Add "Rules" here. <a href='#' onclick='overlay("rules")'>(close)</a></p>
+        <h3>Rules<a class="close" href='#' onclick='overlay("rules");'>X</a></h3>
+        <p>Basic rules of Nurikabe are pretty simple and can be summed up in the following key points:<p>
+        <ul>
+          <li>Each island contains exactly one clue.</li>
+          <li>The number of squares in each island equals the value of the clue.</li>
+          <li>All islands are isolated from each other horizontally and vertically.</li>
+          <li>There are no wall areas of 2x2 or larger.</li>
+          <li>When completed, all walls form a continuous path.</li>
+        </ul>
+        <p>For more detailed explanation of how to play this game, plese look <a href="http://www.nikoli.com/en/puzzles/nurikabe/rule.html" target="_blank">here</a>.</p>
+        <!--<a class="btn" href='#' onclick='overlay("rules");'>Close</a>-->
       </div>
     </div>
     <div id="level" class="overlay">
       <div>
-        <ul>
-          <li><a href='#' onclick='overlay("level");setGameMode(0, 5);'>Easy (5x5)</a></li>
-          <li><a href='#' onclick='overlay("level");setGameMode(0, 7);'>Medium (7x7)</a></li>
-          <li><a href='#' onclick='overlay("level");setGameMode(0, 9);'>Hard (9x9)</a></li>
-        </ul>
+        <h3>Chose Level<a class="close" href='#' onclick='overlay("level");'>X</a></h3>
+          <a class="btn" href='#' onclick='overlay("level");setGameMode(0, 5);'>Easy (5x5)</a>
+          <a class="btn" href='#' onclick='overlay("level");setGameMode(0, 7);'>Medium (7x7)</a>
+          <a class="btn" href='#' onclick='overlay("level");setGameMode(0, 9);'>Hard (9x9)</a>
+      </div>
+    </div>
+    <div id="checkwin" class="overlay">
+      <div>
+        <h3>Check Solution<a class="close" href='#' onclick='overlay("checkwin");'>X</a></h3>
+        <p id="win"><p>
       </div>
     </div>
 

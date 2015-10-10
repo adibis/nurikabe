@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Handlee);
 
 .wrap {
-    border: 2px solid #b95835;
+    border: 2px solid #eecd86;
     border-radius: 10px;
     padding: 1%;
     margin: auto;
@@ -69,6 +69,17 @@
     display: none;
 }
 
+a {
+    text-decoration: none;
+    color: #E18942;
+}
+
+h3 {
+    margin-top: 0px;
+    text-align: left;
+    border-bottom: 2px solid #7A3E48;
+}
+
 .btn {
     border-radius: 10px;
     border: none;
@@ -89,6 +100,11 @@
     outline: none;
 }
 
+.btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
 #puzCount {
     font-family: 'Handlee', cursive;
     font-size: 1em;
@@ -99,23 +115,40 @@
 }
 
 .overlay {
-     visibility: hidden;
-     position: absolute;
-     left: 0px;
-     top: 0px;
-     width:100%;
-     height:100%;
-     text-align:center;
-     z-index: 1000;
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:0;
+    z-index: 1000;
 }
 
 .overlay div {
-     width:300px;
-     margin: 100px auto;
-     background-color: #fff;
-     border:1px solid #000;
-     padding:15px;
-     text-align:center;
+    font-family: 'Handlee', cursive;
+    border-radius: 10px;
+    width:300px;
+    position: relative;
+    margin: 100px auto;
+    background-color: #fff;
+    border: 2px solid #7A3E48;
+    padding: 15px 15px 15px 15px;
+    text-align: center;
+    height:inherit;
+}
+
+.close {
+    position: absolute;
+    border-radius: 5px;
+    top: 5px;
+    right: 5px;
+    color: #000;
+    font-size: 1.2em;
+    padding: 1px 8px;
+}
+
+.overlay div ul li{
+    text-align: left;
 }
 
 @media (max-width: 1200px) {

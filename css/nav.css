@@ -15,10 +15,12 @@ nav {
     border-radius: 10px;
 	height: 40px;
 	width: 100%;
-	background: #3D3242;
+	background: #7a3e48;
 	position: relative;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
+    padding: 0 10px;
     font-family: 'Handlee', cursive;
+    max-width: 600px;
 }
 nav ul {
 	padding: 0;
@@ -52,6 +54,8 @@ nav li {
 @media screen and (max-width: 600px) {
 	nav {
   		height: auto;
+        padding: 0;
+	    background: #3d3242;
   	}
 	nav li {
 		display: block;
@@ -74,6 +78,7 @@ nav li {
 @media only screen and (max-width : 480px) {
 	nav {
 		border-bottom: 0;
+        padding: 0;
 	}
 	nav li {
 		display: block;

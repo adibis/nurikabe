@@ -159,11 +159,17 @@ function checkWin() {
     console.log( "Answer: " + ans );
     if (checkArrays(sol, ans)) {
         $(".cell").unbind("click");
-        alert('You\'ve Solved It!');
+        $("#win").empty();
+        $("#win").append("Congratulations! You\'ve sucessfully solved the puzzle.");
+    } else {
+        $("#win").empty();
+        $("#win").append("There are still some mistakes in your solution. Please Try Again.");
     }
+    overlay("checkwin");
 };
 
 function overlay(inId) {
 	el = document.getElementById(inId);
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+	el.style.height = (el.style.visibility == "visible") ? "auto" : "0";
 }
