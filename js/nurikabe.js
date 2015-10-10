@@ -1,15 +1,9 @@
-var num_of_cols = num_of_rows = 5;
+var gridSize = 5;
 var puzzle;
 var sol;
 var puzNo = 0;
 var puzTot = 0;
-var ans =    [0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0,
-              0, 0, 0, 0, 0 ];
-
-
+var ans;
 
 $(document).ready(function(){
     console.log( "Starting" );
@@ -31,11 +25,30 @@ $(document).ready(function(){
     parseJson();
 });
 
+function setGameMode(inPuzNo, inGameSize) {
+    puzNo = inPuzNo;
+    gridSize = inGameSize;
+    parseJson();
+}
+
 function parseJson(){
+    console.log( "Called ParseJson" );
     $.getJSON('js/puzzles.json', function(data) {
-        puzzle = data.puzzles[puzNo].problem;
-        sol = data.puzzles[puzNo].solution;
-        puzTot = data.puzzles.length;
+        if (gridSize == 5) {
+            puzzle = data.easy[puzNo].problem;
+            sol = data.easy[puzNo].solution;
+            puzTot = data.easy.length;
+        } else if (gridSize == 7) {
+            puzzle = data.medium[puzNo].problem;
+            sol = data.medium[puzNo].solution;
+            puzTot = data.medium.length;
+        } else if (gridSize == 9) {
+            puzzle = data.hard[puzNo].problem;
+            sol = data.hard[puzNo].solution;
+            puzTot = data.hard.length;
+        }
+        ans = new Array((gridSize*gridSize)+1).join('0').split('').map(parseFloat);
+        console.log( "Answer: " + ans );
         $('#puzCount').empty();
         $('#puzCount').append("Puzzle: " + (puzNo+1) + "/" + puzTot);
     }).done(function() {
@@ -45,7 +58,7 @@ function parseJson(){
 
 function initGame(){
     $("#game_map").empty();
-    for(var i=0; i<num_of_cols*num_of_rows;++i)
+    for(var i=0; i<gridSize*gridSize;++i)
     {
         var cellVal = "<div></div>";
         if (puzzle[i] != 0) {
@@ -54,6 +67,14 @@ function initGame(){
         var cell = $(cellVal)
             .addClass("cell "+i)
             .appendTo("#game_map");
+
+        if (gridSize == 5) {
+            cell.addClass("easy");
+        } else if (gridSize == 7) {
+            cell.addClass("medium");
+        } else if (gridSize == 9) {
+            cell.addClass("hard");
+        }
 
         if (puzzle[i] == 0) {
             cell
@@ -64,7 +85,7 @@ function initGame(){
         }
 
         // Add the line breaks
-        if ( i % num_of_cols === 0 ){
+        if ( i % gridSize === 0 ){
             cell.before('<div class="clear"></div>');
         }
 
@@ -82,7 +103,7 @@ function playMove(){
         cell.removeClass("filled").addClass("empty");
     }
 
-    for(var i=0; i<num_of_cols*num_of_rows;++i) {
+    for(var i=0; i<gridSize*gridSize;++i) {
         if(cell.hasClass(i)) {
             if(cell.hasClass("filled")) {
                 ans[i] = 1;
@@ -127,7 +148,7 @@ function newGame() {
 }
 
 function clearAnswer(){
-    for(var i=0; i<num_of_cols*num_of_rows;++i) {
+    for(var i=0; i<gridSize*gridSize;++i) {
         ans[i] = 0;
     }
 }
@@ -141,3 +162,8 @@ function checkWin() {
         alert('You\'ve Solved It!');
     }
 };
+
+function overlay(inId) {
+	el = document.getElementById(inId);
+	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+}

@@ -7,19 +7,69 @@
     <meta name="description" content="">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <link rel="stylesheet" href="css/style.css">
- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="css/nav.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
     <script src="js/nurikabe.js"></script>
   </head>
   <body>
-        <div class="wrap">
-          <div id="game_map">
-          </div>
-        </div>
-      <div class="clear wrap" style="margin-top: 10px;">
+    <nav class="clearfix">
+      <ul class="clearfix">
+        <li><a href="#">Home</a></li>
+        <li><a href="#" onclick='overlay("level")'>Level</a></li>
+        <li><a href="#" onclick='overlay("rules")'>Rules</a></li>
+        <li><a href="#" onclick='overlay("about")'>About</a></li>
+      </ul>
+      <a href="#" id="pull">Menu</a>
+    </nav>
+
+    <div class="wrap">
+      <div id="game_map">
+      </div>
+    </div>
+    <div class="clear wrap" style="margin-top: 10px;">
       <input class="btn" id="check" type="button" value="Check">
       <input class="btn" id="reset" type="button" value="Reset">
       <input class="btn" id="next" type="button" value="New">
       <div id="puzCount"></div>
+    </div>
+    <div id="about" class="overlay">
+      <div>
+        <p>Add "About Me" data here. <a href='#' onclick='overlay("about")'>(close)</a></p>
       </div>
+    </div>
+    <div id="rules" class="overlay">
+      <div>
+        <p>Add "Rules" here. <a href='#' onclick='overlay("rules")'>(close)</a></p>
+      </div>
+    </div>
+    <div id="level" class="overlay">
+      <div>
+        <ul>
+          <li><a href='#' onclick='overlay("level");setGameMode(0, 5);'>Easy (5x5)</a></li>
+          <li><a href='#' onclick='overlay("level");setGameMode(0, 7);'>Medium (7x7)</a></li>
+          <li><a href='#' onclick='overlay("level");setGameMode(0, 9);'>Hard (9x9)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+		  $(function() {
+		  	var pull 		= $('#pull');
+		  		menu 		= $('nav ul');
+		  		menuHeight	= menu.height();
+
+		  	$(pull).on('click', function(e) {
+		  		e.preventDefault();
+		  		menu.slideToggle();
+		  	});
+
+		  	$(window).resize(function(){
+          		var w = $(window).width();
+          		if(w > 320 && menu.is(':hidden')) {
+          			menu.removeAttr('style');
+          		}
+      		});
+		  });
+    </script>
   </body>
 </html>
