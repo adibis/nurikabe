@@ -20,14 +20,16 @@
     margin: 0.5%;
     padding-bottom: 19%;
     width: 19%;
-    font-size: 2em;
+    font-size: 1.75em;
+    font-weight: bold;
 }
 
 #game_map .medium{
     margin: 0.4%;
     padding-bottom: 13.48%;
     width: 13.48%;
-    font-size: 1em;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 
 #game_map .hard{
