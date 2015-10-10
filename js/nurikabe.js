@@ -1,5 +1,6 @@
 var gridSize = 5;
 var puzzle;
+var type;
 var sol;
 var puzNo = 0;
 var puzTot = 0;
@@ -39,19 +40,22 @@ function parseJson(){
             puzzle = data.easy[puzNo].problem;
             sol = data.easy[puzNo].solution;
             puzTot = data.easy.length;
+            type = "Easy";
         } else if (gridSize == 7) {
             puzzle = data.medium[puzNo].problem;
             sol = data.medium[puzNo].solution;
             puzTot = data.medium.length;
+            type = "Medium";
         } else if (gridSize == 9) {
             puzzle = data.hard[puzNo].problem;
             sol = data.hard[puzNo].solution;
             puzTot = data.hard.length;
+            type = "Hard";
         }
         ans = new Array((gridSize*gridSize)+1).join('0').split('').map(parseFloat);
         console.log( "Answer: " + ans );
         $('#puzCount').empty();
-        $('#puzCount').append("Puzzle: " + (puzNo+1) + "/" + puzTot);
+        $('#puzCount').append(type + " Puzzle: " + (puzNo+1) + "/" + puzTot);
     }).done(function() {
     initGame();
     });

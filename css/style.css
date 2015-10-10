@@ -101,9 +101,10 @@ h3 {
     line-height: 2em;
     background: #7A3E48;
     padding: 5px 10px;
-    margin: 2px;
+    margin: 1%;
     text-decoration: none;
     min-width: 75px;
+    width: 30.9%;
 }
 
 .btn:active {
@@ -119,10 +120,12 @@ h3 {
 
 #puzCount {
     font-family: 'Handlee', cursive;
-    font-size: 1em;
+    font-size: 0.5em;
+    font-style: bold;
+    color: #fff;
     float: right;
     line-height: 2em;
-    padding: 6px;
+    padding-right: 10px;
     padding-top: 10px;
     font-weight: bold;
 }
@@ -197,13 +200,18 @@ nav a:active {
     #game_map {
         max-width: 100%;
     }
+    .btn {
+        width: 30.5%;
+    }
 }
 
 @media screen and (max-width: 600px) {
 	nav {
         padding: 0;
   	}
-  	nav a {
+/*
+    nav a {
 	  	width: 100%;
   	}
+*/
 }
