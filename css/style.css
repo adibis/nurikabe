@@ -74,7 +74,7 @@
 .copyright {
     border-top: 2px solid #7a3e48;
     padding-top: 10px;
-    margin-top: 40%;
+    margin-top: 50px;
 }
 
 a {
@@ -148,6 +148,7 @@ h3 {
     height:0;
     z-index: 1000;
 	background: rgba(0,0,0,0.90);
+    overflow: auto;
 }
 
 .overlay div {
@@ -155,7 +156,7 @@ h3 {
     border-radius: 10px;
     width:300px;
     position: relative;
-    margin: 100px auto;
+    margin: 50px auto 20px auto;
     background-color: #fff;
     border: 2px solid #7A3E48;
     padding: 15px 15px 15px 15px;
