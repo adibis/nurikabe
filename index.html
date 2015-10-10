@@ -7,19 +7,12 @@
     <meta name="description" content="">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/nav.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
     <script src="js/nurikabe.js"></script>
   </head>
   <body>
-    <nav class="clearfix">
-      <ul class="clearfix">
-        <li><a href="#">Home</a></li>
-        <li><a href="#" onclick='overlay("level")'>Level</a></li>
-        <li><a href="#" onclick='overlay("rules")'>Rules</a></li>
-        <li><a href="#" onclick='overlay("about")'>About</a></li>
-      </ul>
-      <a href="#" id="pull">Menu</a>
+    <nav>
+      <a href="#" onclick='overlay("menu")'>Nurikabe</a>
     </nav>
 
     <div class="wrap">
@@ -30,7 +23,15 @@
       <input class="btn" id="check" type="button" value="Check">
       <input class="btn" id="reset" type="button" value="Reset">
       <input class="btn" id="next" type="button" value="New">
-      <div id="puzCount"></div>
+      <div id="puzCount" style:"text-style:bold;"></div>
+    </div>
+    <div id="menu" class="overlay">
+      <div>
+          <h3>Nurikabe<a class="close" href='#' onclick='overlay("menu");'>X</a></h3>
+          <a href="#" class="navlink" onclick='overlay("menu");overlay("level")'>Level</a>
+          <a href="#" class="navlink" onclick='overlay("menu");overlay("rules")'>Rules</a>
+          <a href="#" class="navlink" onclick='overlay("menu");overlay("about")'>About</a>
+      </div>
     </div>
     <div id="about" class="overlay">
       <div>
@@ -68,25 +69,5 @@
         <p id="win"><p>
       </div>
     </div>
-
-    <script>
-		  $(function() {
-		  	var pull 		= $('#pull');
-		  		menu 		= $('nav ul');
-		  		menuHeight	= menu.height();
-
-		  	$(pull).on('click', function(e) {
-		  		e.preventDefault();
-		  		menu.slideToggle();
-		  	});
-
-		  	$(window).resize(function(){
-          		var w = $(window).width();
-          		if(w > 320 && menu.is(':hidden')) {
-          			menu.removeAttr('style');
-          		}
-      		});
-		  });
-    </script>
   </body>
 </html>

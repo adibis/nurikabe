@@ -22,6 +22,7 @@ $(document).ready(function(){
             newGame();
         });
     });
+    overlay("menu");
     parseJson();
 });
 
