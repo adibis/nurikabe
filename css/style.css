@@ -71,6 +71,12 @@
     display: none;
 }
 
+.copyright {
+    border-top: 2px solid #7a3e48;
+    padding-top: 10px;
+    margin-top: 40%;
+}
+
 a {
     text-decoration: none;
     color: #E18942;

@@ -164,11 +164,11 @@ function checkWin() {
     console.log( "Answer: " + ans );
     if (checkArrays(sol, ans)) {
         $(".cell").unbind("click");
-        $("#win").empty();
-        $("#win").append("Congratulations! You\'ve sucessfully solved the puzzle.");
+        $("#winhead").empty().append("Congratulations");
+        $("#win").empty().append("Congratulations! You\'ve sucessfully solved the puzzle.");
     } else {
-        $("#win").empty();
-        $("#win").append("There are still some mistakes in your solution. Please Try Again.");
+        $("#winhead").empty().append("Error");
+        $("#win").empty().append("There are still some mistakes in your solution. Please Try Again.");
     }
     overlay("checkwin");
 };
